@@ -4,7 +4,7 @@
       "env",
       {
         "targets": {
-          "node": "stable"
+          "node": "8.11.1"
         }
       }
     ]

@@ -2,12 +2,13 @@
   "name": "prismatic-cli",
   "version": "0.0.0",
   "description": "The missing open source management console for prisma",
-  "main": "index.js",
+  "main": "src/bin.js",
   "repository": "https://github.com/hereisnaman/prismatic-cli.git",
   "author": "Naman Kumar <naman@outlook.in>",
   "license": "MIT",
   "scripts": {
-    "build": "npx babel src -d dist",
+    "build": "rm -rf dist && npx babel src -d dist",
+    "dev": "rm -rf dist && npx babel src -w -d dist",
     "precommit": "lint-staged",
     "format": "prettier --write \"src/**/*.{js,json}\""
   },
@@ -30,5 +31,8 @@
     "lint-staged": "^7.1.0",
     "npx": "^10.2.0",
     "prettier": "^1.12.1"
+  },
+  "dependencies": {
+    "yargs": "^11.0.0"
   }
 }

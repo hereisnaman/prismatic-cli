@@ -7,8 +7,8 @@ const cmd = installCommands()
   .option('config', {
     alias: 'c',
     type: 'string',
-    describe: 'Provide prisma config file path',
-    default: './prisma.yml',
+    describe: 'Provide prisma config file dir',
+    default: './',
   })
   .option('dotenv', {
     alias: 'e',

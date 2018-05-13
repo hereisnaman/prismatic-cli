@@ -14,7 +14,7 @@ const wrapCmd = ([cmd, desc, builder, handler]) => {
     }
 
     const configPath = path.resolve(process.cwd(), args.config);
-    let config = {};
+    let config;
     try {
       config = await makeConfigFromPath(configPath, prismaEnv);
     } catch (err) {

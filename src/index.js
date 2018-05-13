@@ -2,6 +2,7 @@ import path from 'path';
 import dotenv from 'dotenv';
 import { makeConfigFromPath } from 'graphql-config-extension-prisma';
 
+import { error, dir } from './utils/logger';
 import cmds from './cmds/';
 
 const wrapCmd = ([cmd, desc, builder, handler]) => {
@@ -17,10 +18,13 @@ const wrapCmd = ([cmd, desc, builder, handler]) => {
     try {
       config = await makeConfigFromPath(configPath, prismaEnv);
     } catch (err) {
-      console.log(err);
-      if (err.name === 'ConfigNotFoundError') {
-        console.error(`".graphqlconfig" file is not available in the provided config directory: ${configPath}`);
-      }
+      error.log(`There was some error while processing.`);
+      process.exit(0);
+    }
+
+    if (!config) {
+      console.error(`${error.text(`Prisma config not found at:`)} ${dir.text(configPath)}`);
+      process.exit(0);
     }
 
     return config;

@@ -33,6 +33,7 @@
     "prettier": "^1.12.1"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
     "dotenv": "^5.0.1",
     "graphql": "^0.13.2",
     "graphql-config-extension-prisma": "^0.0.12",

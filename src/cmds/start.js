@@ -1,4 +1,6 @@
-const handler = (config, args) => {};
+const handler = (args, config) => {
+  console.log(JSON.stringify(config));
+};
 
 export default [
   ['start', 'S'],
